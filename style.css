@@ -1,0 +1,84 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #0b1522;
+    font-family: Arial, sans-serif;
+}
+
+.tarjeta {
+    width: 280px;
+    height: 190px;
+    position: relative;
+    cursor: pointer;
+    perspective: 1000px;
+}
+
+.interior {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #ffb6c9;
+    border-radius: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    overflow: hidden;
+}
+
+.xd {
+    font-size: 55px;
+    font-weight: bold;
+    color: #f20044;
+
+    transform: translateY(80px);
+    opacity: 0;
+
+    transition: 0.7s ease;
+}
+
+.tapa {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+
+    background: #f20044;
+    border-radius: 10px;
+
+    transform-origin: top;
+    transition: transform 0.8s ease;
+
+    z-index: 2;
+}
+
+.tapa::after {
+    content: "ABREME";
+
+    position: absolute;
+    width: 100%;
+    text-align: center;
+
+    top: 75px;
+
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.tarjeta.abierta .tapa {
+    transform: rotateX(180deg);
+}
+
+.tarjeta.abierta .xd {
+    transform: translateY(0);
+    opacity: 1;
+}
